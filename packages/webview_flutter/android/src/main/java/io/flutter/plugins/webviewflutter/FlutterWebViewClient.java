@@ -110,6 +110,12 @@ class FlutterWebViewClient {
       public void onPageFinished(WebView view, String url) {
         FlutterWebViewClient.this.onPageFinished(view, url);
       }
+      
+      @Override
+      public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+        handler.proceed();
+        //super.onReceivedSslError(view, handler, error);
+      }
 
       @Override
       public void onUnhandledKeyEvent(WebView view, KeyEvent event) {
